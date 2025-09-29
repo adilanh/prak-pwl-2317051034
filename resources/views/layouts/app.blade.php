@@ -1,18 +1,28 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title><?= $title ?></title> 
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet" 
-        integrity="sha384-QWTKZyjpPEjISv5WaRU90FeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEWIH" crossorigin="anonymous"> 
-</head> 
-<body> 
-    @yield('content') 
-    <script 
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-YvpcrYf0tY31HB60NNkmXc5s9fDVZLESAAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>@yield('title','Aplikasi Pengguna')</title>
+</head>
+<body class="min-h-dvh flex flex-col overflow-x-hidden bg-transparent">
+
+  {{-- BG global: fixed + blur, tidak ikut scroll --}}
+  <div class="fixed inset-0 -z-10 bg-fixed bg-cover bg-center"
+       style="background-image:url('/images/background.jpg');"></div>
+  <div class="fixed inset-0 -z-10 bg-black/25 backdrop-blur-sm"></div>
+
+  {{-- NAVBAR dinamis --}}
+  @yield('navbar')
+
+  {{-- AREA KONTEN: flex-1 agar footer nempel bawah, tanpa min-h-screen lagi di halaman --}}
+  <main class="flex-1 pt-16">
+    @yield('content')
+  </main>
+
+  {{-- FOOTER dinamis --}}
+  @yield('footer')
+
+</body>
 </html>

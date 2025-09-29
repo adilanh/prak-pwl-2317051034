@@ -1,27 +1,30 @@
-@extends('layouts.app')
+@extends('layouts.table')
 
-@section('content')
-<h1>Daftar Pengguna</h1>
+@section('title','Daftar Pengguna')
+@section('navbar') @include('partials.navbar') @endsection
+@section('footer') @include('partials.footer') @endsection
 
-<table>
-    <thead>
+@section('table')
+  <div class="overflow-hidden rounded-xl shadow-md">
+    <table class="w-full text-sm text-left">
+      <thead class="bg-gradient-to-r from-green-500 to-blue-400 text-white text-sm uppercase tracking-wide">
         <tr>
-            <th>ID</th>
-            <th>Nama</th>
-            <th>NPM</th>
-            <th>Kelas</th>
+          <th class="py-3 px-5">ID</th>
+          <th class="py-3 px-5">Nama</th>
+          <th class="py-3 px-5">NPM</th>
+          <th class="py-3 px-5">Kelas</th>
         </tr>
-    </thead>
-
-    <tbody>
+      </thead>
+      <tbody class="text-gray-800">
         @foreach ($users as $user)
-            <tr>
-                <td>{{$user->id}}</td>
-                <td>{{$user->nama}}</td>
-                <td>{{$user->npm}}</td>
-                <td>{{$user->nama_kelas}}</td>
-            </tr>
+        <tr class="transition duration-300 hover:bg-green-100/40">
+          <td class="py-3 px-5 border-b border-green-200/30">{{ $user->id }}</td>
+          <td class="py-3 px-5 border-b border-green-200/30">{{ $user->nama }}</td>
+          <td class="py-3 px-5 border-b border-green-200/30">{{ $user->npm }}</td>
+          <td class="py-3 px-5 border-b border-green-200/30">{{ $user->nama_kelas }}</td>
+        </tr>
         @endforeach
-    </tbody>
-</table>
+      </tbody>
+    </table>
+  </div>
 @endsection
