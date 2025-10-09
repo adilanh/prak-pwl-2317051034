@@ -12,6 +12,7 @@ class MataKuliahController extends Controller
             'title' => 'List Mata Kuliah',
             'mks' => MataKuliah::all(),
         ];
+        
         return view('list_mk', $data);
     }
 

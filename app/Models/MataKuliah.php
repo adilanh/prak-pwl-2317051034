@@ -24,6 +24,7 @@ class Matakuliah extends Model
             if (empty($model->{$model->getKeyName()})) {
                 $model->{$model->getKeyName()} = (string) Str::uuid();
             }
+            
         });
     }
 
